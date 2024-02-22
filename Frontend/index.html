@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tickethack</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="icon" href="/Frontend/images/train-tram-solid.svg" type="image/png">
+</head>
+<body>
+  <header class="header">
+    <nav>
+      <p>Tickethack</p>
+    </nav>
+  </header>
+  <div class="blank-top"></div>
+  <div class="titles">
+    <h1>Explore the world effortlessly by train!</h1>
+    <h2>Compare, book and enjoy cheap prices for train tickets: your journey starts on Tickethack.</h2>
+  </div>
+  <main class="blocs">
+    <div id="content-left">
+      <form class="search-form">
+        <div class="form-group">
+          <input class="border-down" type="text" id="departure" name="departure" placeholder="Departure" required>
+        </div>
+        <div class="green-line"></div>
+        <div class="form-group push-down">
+          <input class="border-top" type="text" id="arrival" name="arrival" placeholder="Arrival" required>
+        </div>
+        <div class="form-group date-search">
+          <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </div>
+    <div id="content-right">
+      <div id="option-one">
+        <div class="default-card">
+          <div>
+            <img src="/Frontend/images/train-tram-solid.svg" alt="train_logo" height="80px" width="80px" />
+            <div class="green-line"></div>
+            <p class="msg-default-card">It's time to book your future ticket trip.</p>
+          </div>
+        </div>
+      </div>
+      <div id="option-two">
+        <div class="notrip-card">
+          <div>
+            <img src="/Frontend/images/not_found.png" alt="trip_not_found" height="80px" width="80px" />
+            <div class="green-line"></div>
+            <p class="msg-notrip-card">No trip found.</p>
+          </div>
+        </div>
+      </div>
+      <div id="option-three">
+        <div class="trip-card">
+          <div class="trip">
+            <div>
+              <span class="city-departure">Paris</span>
+              <span>&nbsp;&rsaquo;&nbsp;</span>
+              <span class="city-arrival">Lyon</span>
+            </div>
+            <span class="date">14:00</span>
+            <span class="amount">40<span class="currency">€</span></span>
+          </div>
+          <div class="trip">
+            <div>
+              <span class="city-departure">Paris</span>
+              <span>&nbsp;&rsaquo;&nbsp;</span>
+              <span class="city-arrival">Lyon</span>
+            </div>
+            <span class="date">14:00</span>
+            <span class="amount">40<span class="currency">€</span></span>
+          </div>
+          <div class="trip">
+            <div>
+              <span class="city-departure">Paris</span>
+              <span>&nbsp;&rsaquo;&nbsp;</span>
+              <span class="city-arrival">Lyon</span>
+            </div>
+            <span class="date">14:00</span>
+            <span class="amount">40<span class="currency">€</span></span>
+          </div>
+          <div class="trip">
+            <div>
+              <span class="city-departure">Paris</span>
+              <span>&nbsp;&rsaquo;&nbsp;</span>
+              <span class="city-arrival">Lyon</span>
+            </div>
+            <span class="date">14:00</span>
+            <span class="amount">40<span class="currency">€</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
