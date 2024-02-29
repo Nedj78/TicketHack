@@ -255,8 +255,7 @@ img {
 .trip-card {
   display: grid;
   grid-template-columns: 1fr; 
-  gap: 20px; 
-  padding: 20px;
+  padding: 10px 8px 0 8px;
 }
 
 .trip {
@@ -264,7 +263,7 @@ img {
   grid-template-columns: repeat(3, 1fr); 
   gap: 20px; 
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 7px;
   background-color: rgb(225, 219, 219);
 }
 
@@ -302,7 +301,8 @@ img {
 
   .search-form {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
+
   }
 
   button {

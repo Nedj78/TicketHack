@@ -1,3 +1,4 @@
+
 function createTicket(ticket) {
     const arrivalCity = ticket.arrival[0].toUpperCase() + ticket.arrival.slice(1);
     const departureCity = ticket.departure[0].toUpperCase() + ticket.departure.slice(1);
@@ -18,22 +19,23 @@ function createTicket(ticket) {
                 <span class="city-arrival">${arrivalCity}</span>
             </div>
                 <span class="date">${formattedDate}</span>
-                <span class="amount"><span class="currency">${ticket.price}€</span></span>
+                <span class="amount"><span class="currency">${ticket.price}&nbsp;€</span></span>
         </div>
       </div>
     `;
 }
 
-const fetchTickets = async () => {
-    console.log('coucou')
+function fetchTickets() {
     const departure = document.querySelector('#departure-input').value; 
     const arrival = document.querySelector('#arrival-input').value; 
     const date = document.querySelector('#date-input').value;
-    console.log(date);
 
     const optionOne = document.querySelector('#option-one');
     const optionTwo = document.querySelector('#option-two');
     const optionThree = document.querySelector('#option-three');
+
+    const searchButton = document.querySelector('.btn-search');
+    searchButton.disabled = false; 
 
     fetch('http://localhost:3000/tickets/search', {
         method: 'POST',
@@ -44,9 +46,7 @@ const fetchTickets = async () => {
             date
         })
     })
-
     .then(data => {
-        console.log('la réponse:', data)
         if (!data.ok) {
             optionOne.style.display = "none";
             optionThree.style.display = "none";
@@ -63,16 +63,16 @@ const fetchTickets = async () => {
         return data.json();
     })
     .then(data => {
-        console.log('voyage: ', data)
         data.tickets.forEach(ticket => {
             createTicket(ticket);
         });
     })
     .catch(error => {
         console.error('Error fetching tickets:', error);
+    })
+    .finally(() => {
+        searchButton.disabled = true; 
     });
 }
 
-document.querySelector('.btn-search').addEventListener('click', async () => fetchTickets()); 
-
-
+document.querySelector('.btn-search').addEventListener('click', fetchTickets);
