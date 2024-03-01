@@ -9,7 +9,7 @@ client.connect();
 router.post("/tickets/search", (req, res) => {
   if (!req.body.departure || !req.body.arrival || !req.body.date) {
     res.json({success: false, error: 'Missing data'})
-    return;
+    return; 
   };
 
   const { departure, arrival, date } = req.body;
