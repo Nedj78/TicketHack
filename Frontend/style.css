@@ -10,7 +10,7 @@ html {
 }
 
 ::placeholder {
-  font-size: 12pt;
+  font-size: 13pt;
   padding: 5px;
 }
 
@@ -18,7 +18,6 @@ body {
   box-sizing: border-box;
   margin: 0 0;
   padding: 0 0;
-  font-family: gotham-book, Arial, sans-serif;
   background-image: url("/Frontend/images/wallpaper.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -124,8 +123,15 @@ body {
   padding: 0;
 }
 
+#error-message {
+  font-size: 9pt;
+  color: red;
+  margin-top: 8px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .btn-search {
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .push-down {
@@ -142,12 +148,12 @@ input {
   background-color: rgb(236, 231, 231);
   border-radius: 5px;
   width: 17vw;
-  height: 4vh;
+  height: 7vh;
   padding-left: 10px;
 }
 
 input:focus {
-  outline: solid 1px  rgb(179, 179, 179); 
+  outline: solid 1px  rgb(179, 179, 179);
 }
 
 .border-top {
@@ -175,6 +181,7 @@ button:active {
 
 button:hover {
   cursor: pointer;
+  background-color: rgb(7, 138, 35);
 }
 
 input[type="date"] {
@@ -183,8 +190,7 @@ input[type="date"] {
   appearance: none;
   border: none;
   padding: 8px 12px;
-  font-family: Arial, sans-serif;
-  font-size: 11pt;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;  font-size: 11pt;
   margin: 5px;
   width: 17vw;
   height: 6vh;
@@ -199,23 +205,15 @@ img {
   padding: 200px;
 }
 
-#option-one {
-  display: block;
-}
-
-#option-two {
-  display: none;
-}
-
-#option-three {
-  display: none;
-}
-
 .default-card {
   position: absolute;
   top: 30%;
   left: 48%;
   transform: translate(-50%, -50%);
+}
+
+#option-two {
+  display: none;
 }
 
 .notrip-card {
@@ -291,7 +289,7 @@ img {
 @media screen and (max-width: 1400px) {
 
   ::placeholder {
-    font-size: 7pt;
+    font-size: 8pt;
     padding: 5px;
   }
 
@@ -299,14 +297,23 @@ img {
     padding: 15px;
   }
 
+  #error-message {
+    font-size: 7pt;
+    color: red;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
   .search-form {
     text-align: center;
-    margin-top: 30px;
-
+    margin-top: 25px;
   }
 
   button {
     font-size: 10pt;
+  }
+
+  .btn-search {
+    margin-top: 25px;
   }
 
   input {
