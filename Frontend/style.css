@@ -344,5 +344,95 @@ img {
   .msg-default-card {
     font-size: 9pt;
     left: -50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 }
+
+@media screen and (max-width: 640px) { /* Format responsive pour un iphone SE */
+
+  html {
+    overflow-y: auto; 
+  }
+
+  ::placeholder {
+    font-size: 12pt;
+  }
+
+  body {
+    background-image: url("/Frontend/images/wallpaper.jpg");
+  }
+
+  .header {
+    position: fixed;
+    width: 100%;
+    height: auto; 
+    padding: 10px; 
+    text-align: center; 
+  }
+
+  .blank-top {
+    height: 80px;
+  }
+
+  .titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+  }
+
+  .titles > h1 {
+    font-size: 25pt !important;
+  }
+
+  .titles > h1, .titles > h2 {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    padding: 0 10px;
+    margin: 0 0 50px 0;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+
+  .blocs {
+    padding: 10px 20px;
+    margin: 0 0 30px 0;
+    gap: 30px;
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+
+  .form-group {
+    padding: 3px;
+  }
+
+  input[type="text"], input[type="date"] {
+    font-size: 15px;
+    padding: 5px;
+    width: 90%; 
+  }
+
+  #error-message {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .btn-search {
+    margin-top: 25px;
+    font-size: 15px;
+    height: 5vh; 
+    padding: 5px 10px; 
+    width: 90%; 
+  }
+
+  .trip span {
+    font-size: 10px;
+  }
+
+  .msg-default-card {
+    font-size: 25px;
+    width: 200%;
+    text-align: center; 
+  }
+}
+
