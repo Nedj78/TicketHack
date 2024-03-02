@@ -112,11 +112,13 @@ body {
   height: 50vh; 
   background-color: rgb(240, 240, 240);
   border-radius: 8px;
+  overflow-x: hidden;
+  overflow-y: auto; 
 }
 
 .search-form {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .form-group {
@@ -131,7 +133,7 @@ body {
 }
 
 .btn-search {
-  margin-top: 35px;
+  margin-top: 45px;
 }
 
 .push-down {
@@ -265,6 +267,10 @@ img {
   background-color: rgb(225, 219, 219);
 }
 
+.trip-card:last-child {
+  margin: 0 0 10px 0;
+}
+
 .trip > div {
   display: flex; 
   justify-content: center; 
@@ -343,7 +349,7 @@ img {
 
   .msg-default-card {
     font-size: 9pt;
-    left: -50px;
+    left: -65px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
 }
@@ -396,7 +402,7 @@ img {
 
   .blocs {
     padding: 10px 20px;
-    margin: 0 0 30px 0;
+    margin: 0 0 48px 0;
     gap: 30px;
     flex-direction: column; 
     align-items: flex-start; 

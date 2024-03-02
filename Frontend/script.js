@@ -46,7 +46,7 @@ function fetchTickets() {
 
     let inputFields = document.querySelectorAll('#departure-input, #arrival-input, #date-input');
 
-    const optionOne = document.querySelector('#option-one');
+    let optionOne = document.querySelector('#option-one');
     const tripCard = document.querySelector('#content-right');
     const searchButton = document.querySelector('.btn-search');
 
@@ -57,16 +57,28 @@ function fetchTickets() {
     searchButton.disabled = true; 
 
     if (departure === '' || arrival === '' || date === '') {
-
         errorMessage.textContent = 'All fields are required';
         
         inputFields.forEach(field => {
             field.style.border = '1.5px solid red';
         });
 
+        tripCard.innerHTML = `
+        <div id="option-one">
+            <div class="default-card">
+                <div>
+                    <img src="/Frontend/images/train-tram-solid.svg" alt="train_logo" height="80px" width="80px" />
+                    <div class="green-line"></div>
+                    <p class="msg-default-card">It's time to book your future ticket trip.</p>
+                </div>
+            </div>
+        </div>
+        `;
+
         searchButton.disabled = false;
         return;
     } else {
+        tripCard.innerHTML = '';
         errorMessage.textContent = ''; 
 
         inputFields.forEach(field => {
@@ -88,6 +100,7 @@ function fetchTickets() {
     })
     .then(data => {
         if (!data.ok) {
+            tripCard.innerHTML = '';
             tripCard.innerHTML += `
                 <div class="notrip-card">
                     <div>
@@ -113,9 +126,9 @@ function fetchTickets() {
         searchButton.disabled = false; 
     });
 
-    document.querySelector('#departure-input').value = '';
-    document.querySelector('#arrival-input').value = '';
-    document.querySelector('#date-input').value = '';
+    document.querySelectorAll('#departure-input, #arrival-input, #date-input').forEach(input => {
+        input.value = '';
+    });
 }
 
 document.querySelector('.btn-search').addEventListener('click', fetchTickets);
