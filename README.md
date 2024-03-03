@@ -4,7 +4,7 @@ __Stack__: html/css/javascript
 
 __Responsiveness__: medium, wide and IphoneSE screens only
 
-__Framework__:express.js
+__Framework__: express.js
 
 __Database__: postgreSQL
 
