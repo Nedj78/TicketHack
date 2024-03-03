@@ -72,7 +72,7 @@ function fetchTickets() {
         <div id="option-one">
             <div class="default-card">
                 <div>
-                    <img src="/Frontend/images/train-tram-solid.svg" alt="train_logo" height="80px" width="80px" />
+                    <img src="/train-tram-solid.svg" alt="train_logo" height="80px" width="80px" />
                     <div class="green-line"></div>
                     <p class="msg-default-card">It's time to book your future ticket trip.</p>
                 </div>
@@ -109,7 +109,7 @@ function fetchTickets() {
             tripCard.innerHTML += `
                 <div class="notrip-card">
                     <div>
-                        <img src="/Frontend/images/not_found.png" alt="trip_not_found" height="80px" width="80px" />
+                        <img src="/not_found.png" alt="trip_not_found" height="80px" width="80px" />
                         <div class="green-line"></div>
                         <p class="msg-notrip-card">No trip found.</p>
                     </div>
