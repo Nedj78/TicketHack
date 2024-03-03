@@ -20,7 +20,7 @@ function createTicket(ticket) {
      const isTicketListDisplayed = ticketsList.some(ticketsList => {
         return ticketsList.arrival === arrivalCity &&
                ticketsList.departure === departureCity &&
-               ticketsList.date === ticket.date &&
+               ticketsList.date === formattedDate &&
                ticketsList.price === ticket.price;
     });
 
@@ -43,7 +43,6 @@ function createTicket(ticket) {
 }
 
 function fetchTickets() {
-
     let errorMessage = document.querySelector('#error-message');
 
     const departure = document.querySelector('#departure-input').value; 
