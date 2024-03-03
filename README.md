@@ -1,4 +1,4 @@
-Hackathon project as part of a bootcamp project.
+Hackathon project as part of a coding bootcamp for [La Capsule](https://www.lacapsule.academy/)
 
 Stack : html/css/javascript
 
