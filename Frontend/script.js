@@ -1,4 +1,4 @@
-const ticketsList = [];
+const ticketsList = []; 
 
 function createTicket(ticket) {
     const arrivalCity = ticket.arrival[0].toUpperCase() + ticket.arrival.slice(1);
