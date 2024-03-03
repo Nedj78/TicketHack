@@ -10,4 +10,7 @@ __Database__: PostgreSQL
 
 __Project__ : fetching train tickets via search requests and page loading with CRUD methods.
 
-__Server__ : local http 
+__Backend host server__: No
+
+__Frontend host server__: Jekyll (Github pages)
+
