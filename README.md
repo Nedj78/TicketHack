@@ -1,10 +1,12 @@
-Hackathon project as part of a coding bootcamp for [La Capsule](https://www.lacapsule.academy/)
+__Description__: Hackathon project as part of a coding bootcamp for [La Capsule](https://www.lacapsule.academy/)
 
-Stack : html/css/javascript
+__Stack__: html/css/javascript
 
-Framework: express.js
+__Framework__: express.js
 
-Project: fetching train tickets via search requests and page loading with CRUD methods.
+__Database__: PostgreSQL
 
-Server: local http
+__Project__ : fetching train tickets via search requests and page loading with CRUD methods.
+
+__Server__ : local http
  
