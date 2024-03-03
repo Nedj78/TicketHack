@@ -12,10 +12,13 @@ function getAllCities() {
                     const departureCity = ticket.departure[0].toUpperCase() + ticket.departure.slice(1);
                     const dateTicket = new Date(ticket.date);
                     
-                    const hourTicket = String(dateTicket.getHours()).padStart(2, '0');
+                    const hourTicket = String(dateTicket.getHours()) % 12;
                     const minuteTicket = String(dateTicket.getMinutes()).padStart(2, '0');
                     let dayTicket = String(dateTicket.getDate()).padStart(2, '0');
                     let monthTicket = String(dateTicket.getMonth() + 1).padStart(2, '0');
+                    const yearTicket = dateTicket.getFullYear();
+
+                    let formattedDate = `${dayTicket}/${monthTicket}/${yearTicket} at ${hourTicket}:${minuteTicket}`;
 
                     if (dateTicket.getMonth() + 1 > 9) {
                         monthTicket = String(dateTicket.getMonth() + 1).padStart(2, '0');
@@ -25,8 +28,11 @@ function getAllCities() {
                         dayTicket = String(dateTicket.getDate()).padStart(2, '0');
                     }
 
-                    const yearTicket = dateTicket.getFullYear();
-                    const formattedDate = `${dayTicket}/${monthTicket}/${yearTicket} at ${hourTicket}:${minuteTicket}`;
+                    if (dateTicket.getHours() > 0 && dateTicket.getHours() < 12 ) {
+                        formattedDate = `${dayTicket}/${monthTicket}/${yearTicket} at ${hourTicket}:${minuteTicket} am`;
+                    } else {
+                        formattedDate = `${dayTicket}/${monthTicket}/${yearTicket} at ${hourTicket}:${minuteTicket} pm`;
+                    }
 
                     document.querySelector('.content-dashboard').innerHTML += `
                     <div class="trip-card">

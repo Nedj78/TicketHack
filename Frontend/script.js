@@ -5,9 +5,15 @@ function createTicket(ticket) {
     const departureCity = ticket.departure[0].toUpperCase() + ticket.departure.slice(1);
     const dateTicket = new Date(ticket.date);
 
-    const hourTicket = String(dateTicket.getHours()).padStart(2, '0');
+    const hourTicket = String(dateTicket.getHours()) % 12;
     const minuteTicket = String(dateTicket.getMinutes()).padStart(2, '0');
-    const formattedDate = `${hourTicket}:${minuteTicket}`;
+    let formattedDate = `${hourTicket}:${minuteTicket}`;
+
+    if (dateTicket.getHours() > 0 && dateTicket.getHours() < 12 ) {
+        formattedDate = `${hourTicket}:${minuteTicket} am`;
+    } else {
+        formattedDate = `${hourTicket}:${minuteTicket} pm`;
+    }
 
     const tripCard = document.querySelector('#content-right');
 
