@@ -5,8 +5,8 @@ function createTicket(ticket) {
     const departureCity = ticket.departure[0].toUpperCase() + ticket.departure.slice(1);
     const dateTicket = new Date(ticket.date);
 
-    const hourTicket = dateTicket.getHours().toString().padStart(2, '0');
-    const minuteTicket = dateTicket.getMinutes().toString().padStart(2, '0');
+    const hourTicket = String(dateTicket.getHours()).padStart(2, '0');
+    const minuteTicket = String(dateTicket.getMinutes()).padStart(2, '0');
     const formattedDate = `${hourTicket}:${minuteTicket}`;
 
     const tripCard = document.querySelector('#content-right');
