@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function getAllCities() {
     fetch('http://localhost:3000/tickets')
         .then(response => response.json())
-        .then(data => {
+        .then(data => { 
             if (data.tickets) {
                 data.tickets.forEach(ticket => {
                     const arrivalCity = ticket.arrival[0].toUpperCase() + ticket.arrival.slice(1);
