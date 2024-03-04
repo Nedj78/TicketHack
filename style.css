@@ -395,7 +395,7 @@ img {
   }
 
   body {
-    background-image: url("/Frontend/images/wallpaper.jpg");
+    background-image: url("./wallpaper.jpg");
   }
 
   .header {
@@ -467,7 +467,7 @@ img {
   }
 
   .trip span {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .msg-default-card {
