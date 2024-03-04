@@ -9,7 +9,7 @@ function createTicket(ticket) {
     const minuteTicket = String(dateTicket.getMinutes()).padStart(2, '0');
     let formattedDate = `${hourTicket}:${minuteTicket}`;
 
-    if (dateTicket.getHours() > 0 && dateTicket.getHours() < 12 ) {
+    if (dateTicket.getHours() > 0 && dateTicket.getHours() < 11 ) {
         formattedDate = `${hourTicket}:${minuteTicket} am`;
     } else {
         formattedDate = `${hourTicket}:${minuteTicket} pm`;
