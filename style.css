@@ -410,6 +410,10 @@ img {
     height: 115px;
   }
 
+  #content-left {
+    width: 49vh;
+  }
+
   .titles {
     display: flex;
     flex-direction: column;
