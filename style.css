@@ -384,7 +384,10 @@ img {
   }
 }
 
-@media only screen and (max-width: 640px) { /* Format responsive pour un iphone SE */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px) 
+  and (-webkit-device-pixel-ratio: 2)  { /* Format responsive pour un iphone SE */
 
   html {
     overflow-y: auto; 
