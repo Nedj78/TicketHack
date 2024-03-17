@@ -114,6 +114,7 @@ nav > a:hover, nav > p:hover {
   flex-direction: row;
   justify-content: center; 
   gap: 7vw;
+  margin: 0 0 0 20px;
   align-items: center; 
   padding: 50px 50px;
   min-height: calc(40vh - 13vh); 
@@ -481,7 +482,7 @@ img {
 
   #error-message {
     font-size: 15px;
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   .btn-search {
