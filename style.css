@@ -434,7 +434,7 @@ img {
     padding: 10px;
     margin: 0 0 50px 0;
     text-align: center;
-    background-color: rgb(4, 142, 4, 0.4);
+    background-color: rgb(4, 142, 4, 0.5);
   }
   
   .titles > h2 {
@@ -443,11 +443,11 @@ img {
     padding: 10px;
     margin: 0 0 50px 0;
     text-align: center;
-    background-color: rgb(4, 142, 4, 0.4);
+    background-color: rgb(4, 142, 4, 0.5);
   }
 
   .blocs {
-    padding: 10px 19px;
+    padding: 10px 20px 0 15px;
     margin: 0 0 48px 0;
     gap: 30px;
     flex-direction: column; 
