@@ -456,8 +456,18 @@ img {
     height: 55vh; 
   }
 
+  #content-right {
+    width: 50vh; 
+    height: 50vh; 
+  }
+
+  #content-left {
+    width: 50vh; 
+    height: 50vh; 
+  }
+
   .form-group {
-    padding: 0px;
+    padding: -1px;
   }
 
   input[type="text"], input[type="date"] {
