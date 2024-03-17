@@ -435,7 +435,7 @@ img {
     padding: 10px;
     margin: 0 0 50px 0;
     text-align: center;
-    background-color: rgb(4, 142, 4, 0.5);
+    background-color: rgb(4, 142, 4, 0.7);
   }
   
   .titles > h2 {
@@ -444,7 +444,7 @@ img {
     padding: 10px;
     margin: 0 0 50px 0;
     text-align: center;
-    background-color: rgb(4, 142, 4, 0.5);
+    background-color: rgb(4, 142, 4, 0.7);
   }
 
   .blocs {
