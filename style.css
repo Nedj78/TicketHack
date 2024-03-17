@@ -432,6 +432,7 @@ img {
     margin: 0 0 50px 0;
     text-align: center;
     backdrop-filter: blur(10px);
+    background-color: rgb(4, 142, 4, 0.1);
   }
   
   .titles > h2 {
@@ -441,11 +442,11 @@ img {
     margin: 0 0 50px 0;
     text-align: center;
     backdrop-filter: blur(10px);
-    background-color: rgb(4, 142, 4, 0.3);
+    background-color: rgb(4, 142, 4, 0.1);
   }
 
   .blocs {
-    padding: 10px 18px;
+    padding: 10px 17px;
     margin: 0 0 48px 0;
     gap: 30px;
     flex-direction: column; 
