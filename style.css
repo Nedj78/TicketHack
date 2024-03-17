@@ -96,7 +96,7 @@ nav > a:hover, nav > p:hover {
   padding: 0 10px;
   margin-top: 0;
   backdrop-filter: blur(10px);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .content-dashboard {
@@ -425,17 +425,26 @@ img {
     font-size: 25pt !important;
   }
 
-  .titles > h1, .titles > h2 {
+  .titles > h1 {
     color: rgb(255, 255, 255);
-    font-size: 25px;
-    padding: 0 10px;
+    font-size: 25pt;
+    padding: 10px;
+    margin: 0 0 50px 0;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  
+  .titles > h2 {
+    color: rgb(255, 255, 255);
+    font-size: 15pt;
+    padding: 10px;
     margin: 0 0 50px 0;
     text-align: center;
     backdrop-filter: blur(10px);
   }
 
   .blocs {
-    padding: 10px 20px;
+    padding: 10px 24px;
     margin: 0 0 48px 0;
     gap: 30px;
     flex-direction: column; 
@@ -448,7 +457,7 @@ img {
   }
 
   .form-group {
-    padding: 3px;
+    padding: 0px;
   }
 
   input[type="text"], input[type="date"] {
