@@ -431,8 +431,7 @@ img {
     padding: 10px;
     margin: 0 0 50px 0;
     text-align: center;
-    backdrop-filter: blur(10px);
-    background-color: rgb(4, 142, 4, 0.1);
+    background-color: rgb(4, 142, 4, 0.4);
   }
   
   .titles > h2 {
@@ -441,12 +440,11 @@ img {
     padding: 10px;
     margin: 0 0 50px 0;
     text-align: center;
-    backdrop-filter: blur(10px);
-    background-color: rgb(4, 142, 4, 0.1);
+    background-color: rgb(4, 142, 4, 0.4);
   }
 
   .blocs {
-    padding: 10px 17px;
+    padding: 10px 19px;
     margin: 0 0 48px 0;
     gap: 30px;
     flex-direction: column; 
@@ -480,7 +478,7 @@ img {
 
   #error-message {
     font-size: 15px;
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
   .btn-search {
