@@ -1,10 +1,13 @@
-// Un tableau pour stocker les billets affichés sur la page
-const ticketsList = [];
-
 // Déclaration du bouton de recherche
 const searchButton = document.querySelector('.btn-search');
 
-// Fonction pour créer et afficher un nouveau billet sur la page
+// Ecouteur d'événements pour le clic sur le bouton de recherche de billets
+searchButton.addEventListener('click', fetchTickets);
+
+// Un tableau pour stocker les billets affichés sur la page
+const ticketsList = [];
+
+// 1. FONCTION POUR CREER ET AFFICHER UN NOUVEAU BILLET SUR LA PAGE
 function createTicket(ticket) {
     // Formatage des données pour l'affichage frontend du billet
     const arrivalCity = ticket.arrival[0].toUpperCase() + ticket.arrival.slice(1);
@@ -52,7 +55,7 @@ function createTicket(ticket) {
     }
 }
 
-// Fonction asynchrone pour récupérer les billets depuis le serveur
+// 2. FONCTION ASYNCHRONE POUR RECUPERER LES BILLETS DEPUIS LE SERVEUR 
 async function fetchTickets() {
     const tripCard = document.querySelector('#content-right');
 
@@ -145,6 +148,3 @@ async function fetchTickets() {
         });
     }
 }
-
-// Ecouteur d'événements pour le clic sur le bouton de recherche de billets
-searchButton.addEventListener('click', fetchTickets);

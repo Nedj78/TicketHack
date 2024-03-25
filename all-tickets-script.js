@@ -1,8 +1,8 @@
-// Fonction exécutée lorsque le contenu de la page est chargé
+// 1. FONCTION EXECUTÉE LORSQUE LE CONTENU DE LA PAGE EST CHARGÉ
 document.addEventListener('DOMContentLoaded', async function () {
-    showLoadingIcon();   // Affiche l'icône de chargement
-    await getAllTicketsWithDelay();    // Attend la récupération de tous les billets avec un délai de 3 secondes
-    hideLoadingIcon();    // Cache l'icône de chargement après la récupération des billets
+    showLoadingIcon();  
+    await getAllTicketsWithDelay(); 
+    hideLoadingIcon();  
 });
 
 // Fonction pour afficher l'icône de chargement
@@ -25,29 +25,28 @@ function hideTickets() {
     });
 }
 
-// Fonction pour récupérer tous les billets avec un délai de 3 secondes
+// 2. FONCTION POUR RECUPERER TOUS LES BILLETS EXISTANTS AVEC UN DÉLAI DE 5 SEC
 async function getAllTicketsWithDelay() {
-    await new Promise(resolve => setTimeout(resolve, 3000));    
-    hideTickets();   // Après le délai, cacher tous les billets avant de récupérer les données
+    await new Promise(resolve => setTimeout(resolve, 5000));    
+    hideTickets();  // Après le délai, cacher tous les billets avant de récupérer les données
 
     try {
-        await getAllTickets();   // Récupérer tous les billets de train
+        await getAllTickets(); // Récupérer tous les billets de train
     } catch (error) {
-        throw error;   // En cas d'erreur, rejeter la promesse
+        throw error;  // En cas d'erreur, rejeter la promesse
     }
 }
 
-// Fonction asynchrone pour récupérer toutes les villes de départ et d'arrivée
+// 3. FONCTION POUR RECUPERER TOUS LES BILLETS EXISTANTS
 async function getAllTickets() {
     try {
-        const fetchResponse = await fetch('http://localhost:3000/tickets');    // Envoie une requête au serveur pour récupérer tous les billets disponibles
+        const fetchResponse = await fetch('http://localhost:3000/tickets'); // Requête au serveur
 
-        const data = await fetchResponse.json();    // Récupère les données JSON de la réponse
+        const data = await fetchResponse.json(); // Récupère les données JSON de la réponse du serveur
 
-        // Vérifie si des billets sont disponibles dans les données récupérées
-        if (data.tickets) {
-            data.tickets.forEach(ticket => {     // Parcourt tous les billets et les affiche sur la page
-                // Formatage de la date et de l'heure du billet
+        if (data.tickets) { // Vérifie si des billets sont disponibles dans les données récupérées
+            data.tickets.forEach(ticket => { // Parcourt tous les billets et les affiche sur la page
+                // Formatage de la date et de l'heure du billet qui sera affiché
                 const arrivalCity = ticket.arrival[0].toUpperCase() + ticket.arrival.slice(1);
                 const departureCity = ticket.departure[0].toUpperCase() + ticket.departure.slice(1);
                 const dateTicket = new Date(ticket.date);
@@ -65,7 +64,7 @@ async function getAllTickets() {
                 }
                 const formattedDate = `${dayTicket}/${monthTicket}/${yearTicket} at ${hourTicket}:${minuteTicket} ${meridiem}`;
 
-                // Ajoute le billet au contenu de la page
+                // Ajoute le billet au contenu affiché de la page
                 document.querySelector('.content-dashboard').innerHTML += `
                     <div class="trip-card">
                         <div class="trip">
