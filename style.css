@@ -109,6 +109,13 @@ nav > a:hover, nav > p:hover {
   overflow-y: auto;
 }
 
+#loading_icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
 .blocs {
   display: flex;
   flex-direction: row;
@@ -338,6 +345,12 @@ img {
   .content-dashboard {
     width: 80vw;
     height: 55vh; 
+    overflow: auto; 
+  }
+
+  #loading_icon {
+    height: 120px !important;
+    width: 120px !important;
   }
 
   .search-form {
@@ -387,12 +400,8 @@ img {
 
 @media only screen 
   and (min-device-width: 320px) 
-  and (max-device-width: 568px) 
+  and (max-device-width: 670px) 
   and (-webkit-device-pixel-ratio: 2)  { /* Format responsive pour un iphone SE */
-
-  html {
-    overflow-y: auto; 
-  }
 
   ::placeholder {
     font-size: 12pt;
@@ -448,6 +457,7 @@ img {
   }
 
   .blocs {
+    width: 200vw;
     padding: 10px 20px 0 15px;
     margin: 0 0 48px 0;
     gap: 30px;
@@ -458,6 +468,12 @@ img {
   .content-dashboard {
     width: 88vw; 
     height: 55vh; 
+    overflow: auto; 
+  }
+
+  #loading_icon {
+    height: 50px !important;
+    width: 50px !important;
   }
 
   #content-right {
