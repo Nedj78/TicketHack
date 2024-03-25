@@ -8,7 +8,7 @@ __Framework__: express.js
 
 __Database__: postgreSQL
 
-__Project__ : fetching train tickets via search requests and page loading with CRUD methods.  
+__Project__ : fetching train tickets via search requests and page loading through CRUD methods.  
 
 __Backend host server__: localhost
 
