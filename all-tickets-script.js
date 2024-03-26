@@ -11,13 +11,13 @@ function showLoadingIcon() {
     loadingIcon.style.display = 'block';
 }
 
-// Fonction pour cacher l'icône de chargement
+// Fonction pour masquer l'icône de chargement
 function hideLoadingIcon() {
     const loadingIcon = document.querySelector('#loading_icon');
     loadingIcon.style.display = 'none';
 }
 
-// Fonction pour cacher tous les billets
+// Fonction pour masquer tous les billets
 function hideTickets() {
     const tripCards = document.querySelectorAll('.trip-card');
     tripCards.forEach(tripCard => {
@@ -40,9 +40,9 @@ async function getAllTicketsWithDelay() {
 // 3. FONCTION POUR RECUPERER TOUS LES BILLETS EXISTANTS
 async function getAllTickets() {
     try {
-        const fetchResponse = await fetch('http://localhost:3000/tickets'); // Requête au serveur
+        const fetchResponse = await fetch('http://localhost:3000/tickets'); // Requête d'envoi au serveur
 
-        const data = await fetchResponse.json(); // Récupère les données JSON de la réponse du serveur
+        const data = await fetchResponse.json(); // Réponse du serveur avec les données en json
 
         if (data.tickets) { // Vérifie si des billets sont disponibles dans les données récupérées
             data.tickets.forEach(ticket => { // Parcourt tous les billets et les affiche sur la page
