@@ -18,7 +18,7 @@ router.post("/tickets/search", (req, res) => {
 
   const { departure, arrival, date } = req.body; // Extraction des données de la requête
 
-  // Déclarer les requête SQL pour récupérer les billets correspondant aux critères de départ, d'arrivée et de date
+  // Déclarer les requête SQL pour récupérer les billets correspondants aux critères de départ, d'arrivée et de date
   const query = 'SELECT * FROM tickets WHERE departure ILIKE $1 AND arrival ILIKE $2 AND date::date = $3'; 
   const values = [`%${departure}%`, `%${arrival}%`, date]; // Valeurs à substituer dans la requête
 
