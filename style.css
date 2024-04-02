@@ -109,11 +109,13 @@ nav > a:hover, nav > p:hover {
   overflow-y: auto;
 }
 
-#loading_icon {
+.loading_group {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); 
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: grey;
 }
 
 .blocs {
@@ -348,9 +350,11 @@ img {
     overflow: auto; 
   }
 
-  #loading_icon {
+  .loading_group {
     height: 120px !important;
     width: 120px !important;
+    top: 30%;
+    left: 50%;
   }
 
   .search-form {
@@ -471,7 +475,9 @@ img {
     overflow: auto; 
   }
 
-  #loading_icon {
+  .loading_group {
+    top: 30%;
+    left: 35%;
     height: 50px !important;
     width: 50px !important;
   }

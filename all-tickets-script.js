@@ -7,13 +7,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // Fonction pour afficher l'icône de chargement
 function showLoadingIcon() {
-    const loadingIcon = document.querySelector('#loading_icon');
+    const loadingIcon = document.querySelector('.loading_group');
     loadingIcon.style.display = 'block';
 }
 
 // Fonction pour masquer l'icône de chargement
 function hideLoadingIcon() {
-    const loadingIcon = document.querySelector('#loading_icon');
+    const loadingIcon = document.querySelector('.loading_group');
     loadingIcon.style.display = 'none';
 }
 
