@@ -8,7 +8,7 @@ const connectionString = 'postgres://xvohvzrd:pt_YcASby_XDuIZQUqnnyh4Es3WLV4rl@t
 const client = new Client({ connectionString }); // Création d'une nouvelle instance de Client avec la chaîne de connexion
 client.connect(); 
 
-// ENDPOINT POUR LA RECHERCHE DE BILLETS EXISTANTS
+// ENDPOINT POUR LA RECHERCHE DE BILLETS CORRESPONDANTS A LA RECHERCHE
 router.post("/tickets/search", (req, res) => {
   // Vérification de la présence des données requises dans le corps de la requête
   if (!req.body.departure || !req.body.arrival || !req.body.date) {
@@ -16,11 +16,11 @@ router.post("/tickets/search", (req, res) => {
     return;
   };
 
-  const { departure, arrival, date } = req.body; // Extraction des données de la requête
+  const { departure, arrival, date } = req.body; // Extraction des données de la requête par méthode de destructuration de la requête
 
-  // Déclarer les requête SQL pour récupérer les billets correspondants aux critères de départ, d'arrivée et de date
+  // Déclarer les requêtes SQL pour récupérer les enregistrements de billets correspondants aux colonnes de départ, d'arrivée et de date et séparation des données de la requête pour la sécurité.
   const query = 'SELECT * FROM tickets WHERE departure ILIKE $1 AND arrival ILIKE $2 AND date::date = $3'; 
-  const values = [`%${departure}%`, `%${arrival}%`, date]; // Valeurs à substituer dans la requête
+  const values = [`${departure}`, `${arrival}`, date]; 
 
   // Exécution de la requête SQL
   client.query(query, values)
@@ -39,7 +39,7 @@ router.post("/tickets/search", (req, res) => {
 
 // ENDPOINT POUR RECUPERER TOUS LES BILLETS
 router.get('/tickets', (req, res) => {
-  const query = 'SELECT * FROM tickets'; // Requête SQL pour récupérer tous les billets
+  const query = 'SELECT * FROM tickets'; // Requête SQL pour récupérer tous les enregistrements de billets présents dans la table tickets
   client.query(query)
     .then(data => {
       if (data.rows.length > 0) {
