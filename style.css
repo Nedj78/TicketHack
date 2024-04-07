@@ -314,6 +314,10 @@ img {
   text-align: center;
 }
 
+.trip-card:hover {
+  cursor: pointer; 
+}
+
 .trip .city-departure,
 .trip .city-arrival {
   max-width: 70px;

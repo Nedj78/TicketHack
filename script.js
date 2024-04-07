@@ -9,7 +9,6 @@ const ticketsList = [];
 
 // 1. FONCTION POUR CREER ET AFFICHER UN NOUVEAU BILLET SUR LA PAGE
 function createTicket(ticket) {
-    // Formatage des données pour l'affichage frontend du billet
     const arrivalCity = ticket.arrival[0].toUpperCase() + ticket.arrival.slice(1);
     const departureCity = ticket.departure[0].toUpperCase() + ticket.departure.slice(1);
     const dateTicket = new Date(ticket.date);
@@ -116,7 +115,7 @@ async function fetchTickets() {
 
         // Gestion de la réponse du serveur
         if (!responseToFetch.ok) {
-            // Affichage d'un message si aucun trajet n'est trouvé
+            // Echec
             tripCard.innerHTML = '';
             tripCard.innerHTML += `
                 <div class="notrip-card">
@@ -138,7 +137,6 @@ async function fetchTickets() {
             createTicket(ticket);
         });
     } catch (error) {
-        // Gestion des erreurs lors de la récupération des billets
         console.error('Error fetching tickets:', error);
     } finally {
         // Réactivation du bouton de recherche et nettoyage des champs de saisie
