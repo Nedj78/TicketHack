@@ -1,4 +1,4 @@
-__Description__: hackathon project as part of a coding bootcamp for [La Capsule](https://www.lacapsule.academy/)
+__Description__: hackathon project as part of [La Capsule](https://www.lacapsule.academy/) coding bootcamp.
 
 __Stack__: html/css/javascript
 
