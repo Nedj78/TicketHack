@@ -12,5 +12,5 @@ __Project__ : fetching train tickets via search requests and page loading throug
 
 __Backend host server__: localhost
 
-__Frontend host server__: jekyll (Github pages)
+__Frontend host server__: [jekyll (Github pages)](https://nedj78.github.io/Tickethack/)
 
