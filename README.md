@@ -13,6 +13,6 @@ __Project__ : Fetching train tickets via search requests and page loading using 
 __Backend host server__: localhost
 
 __Frontend host server__: 
-- [jekyll (Github pages)](https://nedj78.github.io/Tickethack/)
+- [jekyll (Github pages)](https://nedj78.github.io/TicketHack/)
 - now [(Verce platform)](https://tickethack-nu.vercel.app/)
 
