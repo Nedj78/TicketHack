@@ -8,8 +8,11 @@ const connectionString = process.env.DATABASE_URL;
 const client = new Client({ 
     connectionString,
     ssl: { rejectUnauthorized: false } 
-});const client = new Client({ connectionString }); 
-client.connect(); 
+}); 
+
+client.connect()
+    .then(() => console.log('✅ Connecté à PostgreSQL'))
+    .catch(err => console.error('❌ Erreur de connexion:', err));
 
 // ENDPOINT POUR LA RECHERCHE DE BILLETS CORRESPONDANTS A LA RECHERCHE
 router.post("/tickets/search", (req, res) => {
@@ -18,13 +21,11 @@ router.post("/tickets/search", (req, res) => {
     return;
   };
 
-  const { departure, arrival, date } = req.body; // Extraction des données de la requête par méthode de destructuration de la requête
+  const { departure, arrival, date } = req.body;
 
-  // Déclarer la requête SQL 
   const query = 'SELECT * FROM tickets WHERE departure ILIKE $1 AND arrival ILIKE $2 AND date::date = $3'; 
   const values = [`${departure}`, `${arrival}`, date]; 
 
-  // Exécution de la requête SQL
   client.query(query, values)
       .then(data => {
           if (data.rows.length) {
@@ -56,4 +57,4 @@ router.get('/tickets', (req, res) => {
     });
 });
 
-module.exports = router; 
+module.exports = router;
