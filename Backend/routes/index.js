@@ -4,8 +4,11 @@ var router = express.Router();
 const { Client } = require('pg'); 
 
 // CONNEXION BASE DE DONNEES POSTGRESQL
-const connectionString = 'postgresql://neondb_owner:npg_WSAxEBprs5Q4@ep-falling-king-ab7ixmnl.eu-west-2.aws.neon.tech/neondb?sslmode=require';
-const client = new Client({ connectionString }); 
+const connectionString = process.env.DATABASE_URL;
+const client = new Client({ 
+    connectionString,
+    ssl: { rejectUnauthorized: false } 
+});const client = new Client({ connectionString }); 
 client.connect(); 
 
 // ENDPOINT POUR LA RECHERCHE DE BILLETS CORRESPONDANTS A LA RECHERCHE
