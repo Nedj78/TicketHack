@@ -4,10 +4,17 @@ var router = express.Router();
 const { Client } = require('pg'); 
 
 // CONNEXION BASE DE DONNEES POSTGRESQL
-const connectionString = process.env.DATABASE_URL;
+let connectionString = process.env.DATABASE_URL;
+
+// Forcer sslmode=require pour Neon.tech
+if (!connectionString.includes('sslmode=')) {
+    connectionString += '?sslmode=require';
+} else if (connectionString.includes('sslmode=verify-full')) {
+    connectionString = connectionString.replace('sslmode=verify-full', 'sslmode=require');
+}
+
 const client = new Client({ 
-    connectionString,
-    ssl: { rejectUnauthorized: false } 
+    connectionString
 }); 
 
 client.connect()
