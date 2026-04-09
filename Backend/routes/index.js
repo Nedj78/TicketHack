@@ -4,7 +4,7 @@ var router = express.Router();
 const { Client } = require('pg'); 
 
 // CONNEXION BASE DE DONNEES POSTGRESQL
-const connectionString = 'postgres://xvohvzrd:pt_YcASby_XDuIZQUqnnyh4Es3WLV4rl@tai.db.elephantsql.com/xvohvzrd';
+const connectionString = 'postgresql://neondb_owner:npg_WSAxEBprs5Q4@ep-falling-king-ab7ixmnl.eu-west-2.aws.neon.tech/neondb?sslmode=require';
 const client = new Client({ connectionString }); 
 client.connect(); 
 
