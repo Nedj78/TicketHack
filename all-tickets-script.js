@@ -40,7 +40,7 @@ async function getAllTicketsWithDelay() {
 // 3. FONCTION POUR RECUPERER TOUS LES BILLETS EXISTANTS
 async function getAllTickets() {
     try {
-        const fetchResponse = await fetch('http://localhost:3000/tickets'); // Requête d'envoi au serveur
+        const fetchResponse = await fetch('https://tickethack.onrender.com/tickets'); // Requête d'envoi au serveur
 
         const data = await fetchResponse.json(); // Réponse du serveur avec les données en json
 
