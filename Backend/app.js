@@ -8,6 +8,10 @@ var usersRouter = require('./routes/users');
   
 var app = express();
 const cors = require('cors');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Serveur démarré sur le port ${PORT}`);
+});
 app.use(cors());
 
 app.use(logger('dev'));
