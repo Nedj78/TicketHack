@@ -27,7 +27,7 @@ function createTicket(ticket) {
     // Sélection de l'élément où les billets seront ajoutés
     const tripCard = document.querySelector('#content-right');
 
-    // Vérification si le billet est déjà affiché pour éviter les doublons et cumuls d'affichage de billets
+    // Vérification si le billet est déjà affiché pour éviter les doublons
     const isTicketListDisplayed = ticketsList.some(ticketsList => {
         return ticketsList.arrival === arrivalCity &&
                ticketsList.departure === departureCity &&
@@ -63,7 +63,6 @@ async function fetchTickets() {
     const date = document.querySelector('#date-input').value;
     
     let inputFields = document.querySelectorAll('#departure-input, #arrival-input, #date-input');
-    let optionOne = document.querySelector('#option-one');
     let errorMessage = document.querySelector('#error-message');
 
     // Nettoyage de l'affichage précédent et du tableau de billets
@@ -73,13 +72,13 @@ async function fetchTickets() {
     // Désactivation du bouton de recherche pendant la requête
     searchButton.disabled = true; 
 
-    // Vérification de la saisie utilisateur et affichage d'un message d'erreur si nécessaire
+    // Vérification de la saisie utilisateur
     if (departure === '' || arrival === '' || date === '') {
         errorMessage.textContent = 'All fields are required';
         inputFields.forEach(field => {
             field.style.border = '1.5px solid red';
         });
-        // Affichage d'une carte d'affichage par défaut si des champs sont vides
+        // Affichage d'une carte par défaut
         tripCard.innerHTML = `
         <div id="option-one">
             <div class="default-card">
@@ -94,7 +93,7 @@ async function fetchTickets() {
         searchButton.disabled = false;
         return;
     } else {
-        // Réinitialisation de l'affichage et des styles en cas de saisie correcte des trois champs de formulaire
+        // Réinitialisation de l'affichage
         tripCard.innerHTML = '';
         errorMessage.textContent = ''; 
         inputFields.forEach(field => {
@@ -106,20 +105,16 @@ async function fetchTickets() {
     }
 
     try {
-        // Envoi d'une requête au serveur pour récupérer les billets disponibles en lien avec la requête
-try {
-    // Envoi d'une requête au serveur pour récupérer les billets disponibles en lien avec la requête
-    const responseToFetch = await fetch('https://tickethack.onrender.com/tickets/search', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ departure, arrival, date })
-    });
+        // Envoi d'une requête au serveur
+        const responseToFetch = await fetch('https://tickethack.onrender.com/tickets/search', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ departure, arrival, date })
+        });
 
-        // Gestion de la réponse du serveur
+        // Gestion de la réponse
         if (!responseToFetch.ok) {
-            // Echec
-            tripCard.innerHTML = '';
-            tripCard.innerHTML += `
+            tripCard.innerHTML = `
                 <div class="notrip-card">
                     <div>
                         <img src="./not_found.png" alt="trip_not_found" height="80px" width="80px" />
@@ -127,13 +122,13 @@ try {
                         <p class="msg-notrip-card">No trip found.</p>
                     </div>
                 </div>`;
-            throw new Error('Request failed!')
+            throw new Error('Request failed!');
         }
 
-        // Récupération des données JSON de la réponse
+        // Récupération des données
         const data = await responseToFetch.json();
 
-        // Réinitialisation de l'affichage initial et affichage des billets récupérés sur la page
+        // Affichage des billets
         tripCard.innerHTML = '';
         data.tickets.forEach(ticket => {
             createTicket(ticket);
@@ -141,7 +136,7 @@ try {
     } catch (error) {
         console.error('Error fetching tickets:', error);
     } finally {
-        // Réactivation du bouton de recherche et nettoyage des champs de saisie
+        // Réactivation du bouton et nettoyage des champs
         searchButton.disabled = false;
         document.querySelectorAll('#departure-input, #arrival-input, #date-input').forEach(input => {
             input.value = '';
