@@ -1,27 +1,31 @@
 // IMPORTATION MODULE EXPRESS & CREATION D'UN ROUTEUR
 var express = require("express");
 var router = express.Router();
-const { Client } = require('pg'); 
+const { Pool } = require('pg');  // ← Utiliser Pool au lieu de Client
 
 // CONNEXION BASE DE DONNEES POSTGRESQL
-let connectionString = process.env.DATABASE_URL;
+const connectionString = process.env.DATABASE_URL;
 
-// Forcer sslmode=require pour Neon.tech
-if (!connectionString.includes('sslmode=')) {
-    connectionString += '?sslmode=require';
-} else if (connectionString.includes('sslmode=verify-full')) {
-    connectionString = connectionString.replace('sslmode=verify-full', 'sslmode=require');
-}
+const pool = new Pool({
+    connectionString,
+    ssl: {
+        rejectUnauthorized: false
+    },
+    // Paramètres spécifiques pour Neon.tech
+    connectionTimeoutMillis: 10000,
+    idleTimeoutMillis: 30000,
+    max: 10
+});
 
-const client = new Client({ 
-    connectionString
-}); 
-
-client.connect()
-    .then(() => console.log('✅ Connecté à PostgreSQL'))
+// Test de connexion au démarrage
+pool.connect()
+    .then(client => {
+        console.log('✅ Connecté à PostgreSQL');
+        client.release();
+    })
     .catch(err => console.error('❌ Erreur de connexion:', err));
 
-// ENDPOINT POUR LA RECHERCHE DE BILLETS CORRESPONDANTS A LA RECHERCHE
+// ENDPOINT POUR LA RECHERCHE DE BILLETS
 router.post("/tickets/search", (req, res) => {
   if (!req.body.departure || !req.body.arrival || !req.body.date) {
     res.json({success: false, error: 'Missing data'}) 
@@ -33,7 +37,7 @@ router.post("/tickets/search", (req, res) => {
   const query = 'SELECT * FROM tickets WHERE departure ILIKE $1 AND arrival ILIKE $2 AND date::date = $3'; 
   const values = [`${departure}`, `${arrival}`, date]; 
 
-  client.query(query, values)
+  pool.query(query, values)  // ← pool.query au lieu de client.query
       .then(data => {
           if (data.rows.length) {
               res.json({ success: true, tickets: data.rows }); 
@@ -50,7 +54,7 @@ router.post("/tickets/search", (req, res) => {
 // ENDPOINT POUR RECUPERER TOUS LES BILLETS
 router.get('/tickets', (req, res) => {
   const query = 'SELECT * FROM tickets'; 
-  client.query(query)
+  pool.query(query)  // ← pool.query au lieu de client.query
     .then(data => {
       if (data.rows.length > 0) {
         res.json({ success: true, tickets: data.rows });
@@ -65,4 +69,3 @@ router.get('/tickets', (req, res) => {
 });
 
 module.exports = router;
- 
