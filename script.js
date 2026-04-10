@@ -107,11 +107,13 @@ async function fetchTickets() {
 
     try {
         // Envoi d'une requête au serveur pour récupérer les billets disponibles en lien avec la requête
-        const responseToFetch = await fetch('http://localhost:3000/tickets/search', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ departure, arrival, date })
-        });
+try {
+    // Envoi d'une requête au serveur pour récupérer les billets disponibles en lien avec la requête
+    const responseToFetch = await fetch('https://tickethack.onrender.com/tickets/search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ departure, arrival, date })
+    });
 
         // Gestion de la réponse du serveur
         if (!responseToFetch.ok) {
