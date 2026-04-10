@@ -1,20 +1,19 @@
 // IMPORTATION MODULE EXPRESS & CREATION D'UN ROUTEUR
 var express = require("express");
 var router = express.Router();
-const { Pool } = require('pg');  // ← Utiliser Pool au lieu de Client
+const { Pool } = require('pg');
 
-// CONNEXION BASE DE DONNEES POSTGRESQL
-const connectionString = process.env.DATABASE_URL;
+// CONNEXION BASE DE DONNEES POSTGRESQL - URL EN DUR POUR TEST
+const connectionString = 'postgresql://neondb_owner:npg_WSAxEBprs5Q4@ep-falling-king-ab7ixmnl.eu-west-2.aws.neon.tech/neondb?sslmode=require&connect_timeout=10';
 
 const pool = new Pool({
-    connectionString,
+    connectionString: connectionString,
     ssl: {
         rejectUnauthorized: false
     },
-    // Paramètres spécifiques pour Neon.tech
-    connectionTimeoutMillis: 10000,
+    connectionTimeoutMillis: 15000,
     idleTimeoutMillis: 30000,
-    max: 10
+    max: 5
 });
 
 // Test de connexion au démarrage
@@ -23,21 +22,24 @@ pool.connect()
         console.log('✅ Connecté à PostgreSQL');
         client.release();
     })
-    .catch(err => console.error('❌ Erreur de connexion:', err));
+    .catch(err => {
+        console.error('❌ Erreur de connexion PostgreSQL:', err.message);
+        console.error('Détails:', err);
+    });
 
 // ENDPOINT POUR LA RECHERCHE DE BILLETS
 router.post("/tickets/search", (req, res) => {
   if (!req.body.departure || !req.body.arrival || !req.body.date) {
     res.json({success: false, error: 'Missing data'}) 
     return;
-  };
+  }
 
   const { departure, arrival, date } = req.body;
 
   const query = 'SELECT * FROM tickets WHERE departure ILIKE $1 AND arrival ILIKE $2 AND date::date = $3'; 
   const values = [`${departure}`, `${arrival}`, date]; 
 
-  pool.query(query, values)  // ← pool.query au lieu de client.query
+  pool.query(query, values)
       .then(data => {
           if (data.rows.length) {
               res.json({ success: true, tickets: data.rows }); 
@@ -46,7 +48,7 @@ router.post("/tickets/search", (req, res) => {
           }
       })
       .catch(error => {
-          console.error(error);
+          console.error('Erreur recherche:', error);
           res.status(500).json({ success: false, error: "Failed to retrieve tickets data" }); 
       });
 });
@@ -54,7 +56,7 @@ router.post("/tickets/search", (req, res) => {
 // ENDPOINT POUR RECUPERER TOUS LES BILLETS
 router.get('/tickets', (req, res) => {
   const query = 'SELECT * FROM tickets'; 
-  pool.query(query)  // ← pool.query au lieu de client.query
+  pool.query(query)
     .then(data => {
       if (data.rows.length > 0) {
         res.json({ success: true, tickets: data.rows });
@@ -63,7 +65,7 @@ router.get('/tickets', (req, res) => {
       }
     })
     .catch(error => {
-      console.error(error);
+      console.error('Erreur récupération:', error);
       res.status(500).json({ success: false, error: 'Failed to retrieve tickets data' }); 
     });
 });
