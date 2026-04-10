@@ -12,5 +12,5 @@ __Project__ : Fetching train tickets via search requests and page loading using 
 
 __Backend cloud host server__: Render.com
 
-__Frontend host server__: [(Verce platform)](https://tickethack-nu.vercel.app/)
+__Frontend host server__: Vercel [(link to project)](https://tickethack-nu.vercel.app/)
 
