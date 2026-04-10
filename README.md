@@ -10,7 +10,7 @@ __Database__: Neon / postgreSQL
 
 __Project__ : Fetching train tickets via search requests and page loading using CRUD methods
 
-__Cloud host server__: Render [(link to project)](https://tickethack-nu.vercel.app/](https://tickethack.onrender.com/index.html)
+__Cloud host server__: Render [(link to project)](https://tickethack.onrender.com/index.html)
 
 __Frontend host server__: Vercel [(link to project)](https://tickethack-nu.vercel.app/)
 
